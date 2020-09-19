@@ -32,7 +32,7 @@ jobs:
     if: github.base_ref == 'master' && github.actor == 'dependabot[bot]'
     steps:
       - name: Merge
-        uses: actions/github-script@0.2.0
+      - uses: actions/github-script@v3
         with:
           script: |
             github.pullRequests.merge({
@@ -40,4 +40,4 @@ jobs:
               repo: context.payload.repository.name,
               pull_number: context.payload.pull_request.number
             })
-          github-token: ${{github.token}}
+          github-token: ${{secrets.GITHUB_TOKEN}}
