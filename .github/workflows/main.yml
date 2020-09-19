@@ -1,6 +1,6 @@
   name: auto-merge
 
-  on: [push,pull_request]
+  on: pull_request
 
   jobs:
     auto-merge:
@@ -9,7 +9,6 @@
         - uses: actions/checkout@v2
         - uses: ahmadnassri/action-dependabot-auto-merge@v2
           with:
-            target: minor
             github-token: ${{ secrets.DEPENDABOT_TOKEN }}
 
           
